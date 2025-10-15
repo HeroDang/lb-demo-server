@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 import socket
 import time
 import random
+import os
 
 app = Flask(__name__)
 
@@ -9,14 +10,14 @@ app = Flask(__name__)
 def hello():
     return jsonify({
         "message": "Hello from Flask!",
-        "server": socket.gethostname()
+        "server": os.getenv("SERVER_ID", socket.gethostname())
     })
 
 @app.route('/api/slow')
 def slow():
-    time.sleep(3)
+    time.sleep(5)
     return jsonify({
-        "server": socket.gethostname(),
+        "server": os.getenv("SERVER_ID", socket.gethostname()),
         "type": "slow response"
     })
 
@@ -28,12 +29,12 @@ def health():
     if status == "healthy":
         return jsonify({
             "status": "OK",
-            "server": socket.gethostname()
+            "server": os.getenv("SERVER_ID", socket.gethostname())
         }), 200
     else:
         return jsonify({
             "status": "FAIL",
-            "server": socket.gethostname()
+            "server": os.getenv("SERVER_ID", socket.gethostname())
         }), 500
 
 if __name__ == '__main__':

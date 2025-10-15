@@ -3,10 +3,34 @@ services:
   api1:
     build: ./app
     container_name: api1
+    environment:
+      - SERVER_ID=api1
+    expose:
+      - "5000"
 
   api2:
     build: ./app
     container_name: api2
+    environment:
+      - SERVER_ID=api2
+    expose:
+      - "5000"
+
+  api3:
+    build: ./app
+    container_name: api3
+    environment:
+      - SERVER_ID=api3
+    expose:
+      - "5000"
+
+  api4:
+    build: ./app
+    container_name: api4
+    environment:
+      - SERVER_ID=api4
+    expose:
+      - "5000"
 
   nginx:
     image: nginx:latest
@@ -18,3 +42,5 @@ services:
     depends_on:
       - api1
       - api2
+      - api3
+      - api4
