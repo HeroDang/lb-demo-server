@@ -1,0 +1,49 @@
+# Python cache & build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+*.log
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+**/Dockerfile.*
+**/docker-compose-*.yml
+logs/
+tmp/
+*.tar
+*.gz
+
+# NGINX
+nginx/access.log
+nginx/error.log
+
+# Misc
+*.sqlite3
+*.db
